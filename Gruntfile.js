@@ -105,13 +105,22 @@ module.exports = function(grunt) {
             },
             compile_soundjs_plugin: {
                 options: {
-                    baseUrl: './src/soundjs',
-                    include: ['soundjs'],
-                    optimize: 'none',
+                    baseUrl: '.',
+                    include: ['src/soundjs/soundjs'],
+                    optimize: 'uglify2',
                     out: './dist/plugins/soundjs/main.js',
-                    skipSemiColonInsertion: true
+                    skipSemiColonInsertion: true,
+                    paths: {
+                        "CerosSDK":  "//sdk.ceros.com/standalone-player-sdk-v3.min",
+                        "lodash":     "//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.1/lodash.min",
+                        "modules":    "./src/soundjs/modules",
+                        "Howler": "https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0/howler.min"
+
+                    }
                 }
             },
+
+
             compile_highlander_plugin: {
                 options: {
                     baseUrl: './src/highlander',
