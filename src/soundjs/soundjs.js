@@ -36,7 +36,6 @@
         CerosSDK.findExperience().done(function(cerosExperience) {
 
 
-
             var componentsWithSound = cerosExperience.findComponentsByTag("playsound");
             var componentsWithEvent = cerosExperience.findComponentsByTag("sound-click");
 

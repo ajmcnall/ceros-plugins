@@ -22,7 +22,7 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
             interrupt: false,
             fastforwardtime: 3000, //in milliseconds
             rewindtime: 3000, //in milliseconds
-            fadeintime: 1000, // fade in time in milliseconds
+            fadeintime: 2000, // fade in time in milliseconds
             fadeouttime: 1000, // fade out time in milliseconds
             html5: false, //if true, forces html5, needed for streams
             stream: false,
@@ -97,6 +97,7 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
 
             this.soundOptions.html5 = true;
             this.soundOptions.preload = false;
+            this.soundOptions.rate = 1;
             if (this.soundOptions.format.length === 0) {
                 this.soundOptions.format = ['mp3']; //defaults to mp3 files for streams
             }
@@ -155,8 +156,6 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
          * If sound is already playing, and this.interrupt is true, the sound is interrupted and played again
          */
         play: function() {
-
-
 
             // Checks if song has been loaded yet, if not, then loads it
 
@@ -331,12 +330,12 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
          *
          * @param {String} func Event name of function to call
          */
-        dispatch: function(func) {
+        dispatch: function(evtName) {
 
             // NOTE: dispatchEvent, sends the object it is called on as "this" to the handle function.
             // in this case this.sound becomes this in the handle function
-            if (this.funcs.hasOwnProperty(func)) {
-                this.funcs[func]();
+            if (this.funcs.hasOwnProperty(evtName)) {
+                this.funcs[evtName]();
             }
         },
 

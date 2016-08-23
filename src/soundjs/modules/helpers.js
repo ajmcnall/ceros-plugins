@@ -17,11 +17,11 @@ define(['lodash'], function(_) {
             var componentOptions = this.parseArrayOfTags(component.getTags());
 
             //NOTE MAY HAVE TO USE _.defaultsDeep
-            var test = _.defaultsDeep(
+            var options = _.defaultsDeep(
                 componentOptions,
                 componentDefaults
             );
-            return test;
+            return options;
 
         },
 

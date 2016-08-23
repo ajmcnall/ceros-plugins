@@ -1,7 +1,7 @@
 define([
-    'lodash', 
-    'Howler', 
-    'modules/helpers', 
+    'lodash',
+    'Howler',
+    'modules/helpers',
     'modules/SoundComponent'
 ], function(_, Howler, helpers, SoundComponent) {
 
@@ -14,6 +14,7 @@ define([
      * @param {CerosSDK.CerosComponentCollection} cerosComponentCollection The collection of CerosComponents that contain sound files
      */
     var SoundComponents = function(cerosComponentCollection) {
+        console.log(cerosComponentCollection);
 
         // Object to hold all of the SoundComponent(s)
         this.sounds = {};
@@ -29,17 +30,14 @@ define([
         //TODO check what happens with empty payload
         _.forEach(this.cerosComponentCollection.components, function(soundComponent, soundComponentIndex) {
 
-
-
             var preload = true;
             var url = soundComponent.getPayload();
 
             // If the url is being loaded elsewhere, cancels preload
-            if (cachedUrls.indexOf(url) > -1){
+            if (cachedUrls.indexOf(url) > -1) {
                 preload = false;
-            }
-            else {
-                cachedUrls.push(url);                
+            } else {
+                cachedUrls.push(url);
             }
             this.sounds[soundComponent.id] = new SoundComponent(soundComponent, preload);
 
@@ -80,7 +78,7 @@ define([
                 if (this.sounds.hasOwnProperty(currentSoundId)) {
                     this.sounds[currentSoundId].dispatch(evt);
                 }
-                
+
             }
         },
 
