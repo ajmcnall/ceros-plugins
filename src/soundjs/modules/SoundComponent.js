@@ -123,11 +123,13 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
 
         //NOTE this is very unreliable when in background because browsers throttle background tabs
         // this messes up timeouts and similar stuff
-        this.sound.on('end', function() {
-            if (this.soundOptions !== 0) {
-                this.sound.seek(this.soundOptions.start);
-            }
-        }.bind(this));
+
+        
+        // this.sound.on('end', function() {
+        //     if (this.soundOptions !== 0) {
+        //         this.sound.seek(this.soundOptions.start);
+        //     }
+        // }.bind(this));
 
         // custom events that can be triggered through component events
         // .bind(this) needed to keep this consistent when functions are called
@@ -287,7 +289,7 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
         },
 
         /**
-         * Fades the volume from 0 to the volume in soundOptions  (default: 1 second)
+         * Fades the volume from 0 to the volume in soundOptions  (default: 2 second)
          * Plays the sound when done.
          */
         handleFadeIn: function() {
@@ -302,7 +304,7 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
         },
 
         /**
-         * Fades the volume from the set volume to  (default: 1 second)
+         * Fades the volume from the set volume to 0  (default: 1 second)
          * Stops the sound when done.
          */
         handleFadeOut: function() {
