@@ -14,7 +14,6 @@ define([
      * @param {CerosSDK.CerosComponentCollection} cerosComponentCollection The collection of CerosComponents that contain sound files
      */
     var SoundComponents = function(cerosComponentCollection) {
-        console.log(cerosComponentCollection);
 
         // Object to hold all of the SoundComponent(s)
         this.sounds = {};
@@ -82,7 +81,6 @@ define([
             }
         },
 
-        // Returns the Id of a sound with the given name, if none exists, returns false
 
         /**
          * Returns the Id of a sound with the given name, if none exists, returns false
