@@ -118,19 +118,6 @@ define(['lodash', 'Howler', 'modules/helpers'], function(_, Howler, helpers) {
 
 
 
-        // Attaches the play and interrupt function to this.sound
-        // Done to make things neater because dispatchEvent changes the context of this
-
-        //NOTE this is very unreliable when in background because browsers throttle background tabs
-        // this messes up timeouts and similar stuff
-
-        
-        // this.sound.on('end', function() {
-        //     if (this.soundOptions !== 0) {
-        //         this.sound.seek(this.soundOptions.start);
-        //     }
-        // }.bind(this));
-
         // custom events that can be triggered through component events
         // .bind(this) needed to keep this consistent when functions are called
         this.funcs["mute"] = this.handleMute.bind(this);
